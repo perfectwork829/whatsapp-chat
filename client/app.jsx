@@ -49,9 +49,13 @@ function App() {
   useEffect(() => {
     const abortCtrl = new AbortController();
     // set default base url
+    // axios.defaults.baseURL = config.isDev
+    //   ? 'http://127.0.0.1:8080/api'
+    //   : '/api';
+
     axios.defaults.baseURL = config.isDev
-      ? 'http://127.0.0.1:8080/api'
-      : '/api';
+      ? 'https://imaxchat-7n7x.onrender.com/api'
+      : 'https://imaxchat-7n7x.onrender.com/api';
     handleGetMaster(abortCtrl.signal);
 
     socket.on('user/inactivate', () => {
